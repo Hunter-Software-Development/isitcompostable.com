@@ -6,6 +6,12 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import Search from "../components/search";
+
 export async function getStaticProps() {
     const allPostsData = getSortedPostsData();
     return {
@@ -20,25 +26,10 @@ export default function Home({ allPostsData }: any) {
         <Layout home>
             <Head>
                 <title>{siteTitle}</title>
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
             </Head>
             <section className={utilStyles.headingMd}>
-                <p>[Your Self Introduction]</p>
-                <p>(This is a sample website - you’ll be building a site like this on our Next.js tutorial.)</p>
-            </section>
-
-            <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-                <h2 className={utilStyles.headingLg}>Blog</h2>
-                <ul className={utilStyles.list}>
-                    {allPostsData.map(({ id, date, title }: { id: number; date: string; title: string }) => (
-                        <li className={utilStyles.listItem} key={id}>
-                            <Link href={`/posts/${id}`}>{title}</Link>
-                            <br />
-                            <small className={utilStyles.lightText}>
-                                <Date dateString={date} />
-                            </small>
-                        </li>
-                    ))}
-                </ul>
+                <Search allPostsData={allPostsData} />
             </section>
         </Layout>
     );
