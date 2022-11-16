@@ -1,12 +1,12 @@
 ---
-title: "Fruit Wastes"
+title: "Grass Clippings"
 date: "2022-11-14"
 typeOfValue: "Average"
-percentNitrogen: 1.4
-carbonToNitrogenRatio: 40
-moistureContentPercentage: 80
+percentNitrogen: 3.4
+carbonToNitrogenRatio: 17
+moistureContentPercentage: 82
 bulkDensityPoundsPerCubicYard: null
 sources: ["https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf", "http://compost.css.cornell.edu/CompostCalculator.xlsx"]
 ---
 
-Fruit Wastes are compostable! They are a brown.
+Grass Clippings are compostable! They are a green.

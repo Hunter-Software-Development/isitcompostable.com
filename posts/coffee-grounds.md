@@ -1,12 +1,12 @@
 ---
 title: "Coffee Grounds"
 date: "2022-11-14"
-typeOfValue: "typical"
+typeOfValue: "Typical"
 percentNitrogen: 2.28
 carbonToNitrogenRatio: 20
 moistureContentPercentage: 75
 bulkDensityPoundsPerCubicYard: null
-sources: ["http://www.sunset.com/garden/earth-friendly/starbucks-coffee-compost-test-00400000016986/", "http://www.google.com/patents/US3823487"]
+sources: ["http://compost.css.cornell.edu/CompostCalculator.xlsx", "http://www.sunset.com/garden/earth-friendly/starbucks-coffee-compost-test-00400000016986/", "http://www.google.com/patents/US3823487"]
 ---
 
 Coffee Grounds are compostable! They are a green and have a high mosture content.
