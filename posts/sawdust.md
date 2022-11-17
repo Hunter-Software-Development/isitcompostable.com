@@ -1,6 +1,6 @@
 ---
 title: "Sawdust"
-date: "2022-11-14"
+singular: true
 typeOfValue: "Average"
 percentNitrogen: .24
 carbonToNitrogenRatio: 442

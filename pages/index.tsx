@@ -3,8 +3,6 @@ import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 
 import { getSortedPostsData } from "../lib/posts";
-import Link from "next/link";
-import Date from "../components/date";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -22,6 +20,8 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }: any) {
+    console.log(allPostsData);
+
     return (
         <Layout home>
             <Head>

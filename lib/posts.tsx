@@ -27,14 +27,8 @@ export function getSortedPostsData() {
         };
     });
     // Sort posts by date
-    return allPostsData.sort(({ date: a }: any, { date: b }: any): 1 | -1 | 0 => {
-        if (a < b) {
-            return 1;
-        } else if (a > b) {
-            return -1;
-        } else {
-            return 0;
-        }
+    return allPostsData.sort((a: any, b: any): any => {
+        a.title.localeCompare(b.title);
     });
 }
 export function getAllPostIds() {

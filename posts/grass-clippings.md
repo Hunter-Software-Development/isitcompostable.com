@@ -1,6 +1,6 @@
 ---
 title: "Grass Clippings"
-date: "2022-11-14"
+singular: false
 typeOfValue: "Average"
 percentNitrogen: 3.4
 carbonToNitrogenRatio: 17

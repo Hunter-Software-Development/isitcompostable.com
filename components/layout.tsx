@@ -5,7 +5,7 @@ import Link from "next/link";
 import Search from "./search";
 // import { getSortedPostsData } from "../lib/posts";
 
-const name = "IsItCompostable.com";
+const name = "Is It Compostable?";
 export const siteTitle = "Is It Compostable";
 
 // export async function getStaticProps() {
@@ -31,7 +31,7 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
             <header className={styles.header}>
                 {home ? (
                     <>
-                        <h1 className={utilStyles.heading2Xl}>IsItCompostable.com</h1>
+                        <h1 className={utilStyles.heading2Xl}>Is It Compostable?</h1>
                     </>
                 ) : (
                     <>
@@ -42,7 +42,6 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
                         </h2>
                     </>
                 )}
-                {/* <Search allPostsData={allPostsData} /> */}
             </header>
             <main>{children}</main>
             {!home && (

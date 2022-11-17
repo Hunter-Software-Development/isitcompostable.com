@@ -36,7 +36,7 @@ export default function Post({ postData }: any) {
 
     const rainbow = new Rainbow();
     rainbow.setSpectrum("green", "brown");
-    rainbow.setNumberRange(0, 772)
+    rainbow.setNumberRange(0, 772);
     const color: string = rainbow.colourAt(postData.carbonToNitrogenRatio);
 
     return (
@@ -46,18 +46,27 @@ export default function Post({ postData }: any) {
             </Head>
             <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+                <div style={{ marginBottom: "5px" }}>
+                    {postData.singular ? "Is" : "Are"} {postData.title} Compostable?
+                </div>
                 <Card variant="outlined">
                     <CardContent>
-                        <div className={utilStyles.lightText}>{postData.typeOfValue} Values</div>
-                        <p>
-                            Carbon To Nitrogen Ratio: <b style={{ color: `#${color}` }}>{postData.carbonToNitrogenRatio}:1</b>
-                        </p>
-                        <p>
-                            Percent Nitrogen <small>(Dry Weight)</small>: {postData.percentNitrogen}%
-                        </p>
-                        <p>
-                            Moisture Content Percentage <small>(Wet Weight)</small>: {postData.moistureContentPercentage}%
-                        </p>
+                        {postData.typeOfValue && <div className={utilStyles.lightText}>{postData.typeOfValue} Values</div>}
+                        {postData.carbonToNitrogenRatio && (
+                            <p>
+                                Carbon To Nitrogen Ratio: <b style={{ color: `#${color}` }}>{postData.carbonToNitrogenRatio}:1</b>
+                            </p>
+                        )}
+                        {postData.percentNitrogen && (
+                            <p>
+                                Percent Nitrogen <small>(Dry Weight)</small>: {postData.percentNitrogen}%
+                            </p>
+                        )}
+                        {postData.moistureContentPercentage && (
+                            <p>
+                                Moisture Content Percentage <small>(Wet Weight)</small>: {postData.moistureContentPercentage}%
+                            </p>
+                        )}
                         {postData.bulkDensityPoundsPerCubicYard && <p>Bulk Density: {postData.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
                         <p>
                             Source(s): <ul>{sources}</ul>

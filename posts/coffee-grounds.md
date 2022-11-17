@@ -1,6 +1,6 @@
 ---
 title: "Coffee Grounds"
-date: "2022-11-14"
+singular: false
 typeOfValue: "Typical"
 percentNitrogen: 2.28
 carbonToNitrogenRatio: 20

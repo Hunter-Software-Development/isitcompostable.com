@@ -1,12 +1,12 @@
 ---
-title: "Fruit Wastes"
+title: "Leaves"
 singular: false
 typeOfValue: "Average"
-percentNitrogen: 1.4
-carbonToNitrogenRatio: 40
-moistureContentPercentage: 80
+percentNitrogen: .9
+carbonToNitrogenRatio: 54
+moistureContentPercentage: 38
 bulkDensityPoundsPerCubicYard: null
 sources: ["https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf", "http://compost.css.cornell.edu/CompostCalculator.xlsx"]
 ---
 
-Fruit Wastes are compostable! They are a brown.
+Leaves are compostable! They are a brown.

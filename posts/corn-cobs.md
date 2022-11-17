@@ -1,6 +1,6 @@
 ---
 title: "Corn Cobs"
-date: "2022-11-14"
+singular: false
 typeOfValue: "Average"
 percentNitrogen: .6
 carbonToNitrogenRatio: 98

@@ -9,7 +9,7 @@ export default function Search({ allPostsData }: any): JSX.Element {
     return (
         <Autocomplete
             id="highlights-demo"
-            sx={{ width: 300 }}
+            sx={{ maxWidth: 300, margin: "auto" }}
             options={allPostsData}
             getOptionLabel={(option: { title: string; id: string }) => option.title}
             groupBy={(option) => option.title[0].toUpperCase()}
