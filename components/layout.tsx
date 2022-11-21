@@ -6,15 +6,6 @@ import Link from "next/link";
 const name = "Is It Compostable?";
 export const siteTitle = "Is It Compostable";
 
-// export async function getStaticProps() {
-//     const allPostsData = getSortedPostsData();
-//     console.log(allPostsData);
-//     return {
-//         props: {
-//             allPostsData,
-//         },
-//     };
-// }
 
 export default function Layout({ children, home, allPostsData }: { children?: JSX.Element[] | JSX.Element; home?: boolean; allPostsData?: any }) {
     return (
@@ -25,6 +16,7 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
                 <meta property="og:image" content={`https://og-image.vercel.app/${encodeURI(siteTitle)}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`} />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
+                <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
             </Head>
             <header className={styles.header}>
                 {home ? (
