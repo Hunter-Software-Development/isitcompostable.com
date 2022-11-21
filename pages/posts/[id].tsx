@@ -3,8 +3,12 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 
 import utilStyles from "../../styles/utils.module.css";
-import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import Rainbow from "rainbowvis.js";
+import { useRouter } from "next/router";
+import { ReactCusdis } from "react-cusdis";
+import { ExpandMoreOutlined } from "@mui/icons-material";
+
+import { Accordion, AccordionDetails, AccordionSummary, Alert, AlertTitle, Card, CardContent, Typography } from "@mui/material";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     // Add the "await" keyword like this:
@@ -26,6 +30,9 @@ export async function getStaticPaths() {
 }
 
 export default function Post({ postData }: any) {
+    const router = useRouter();
+    const currentUri = "https://isitcompostable.com" + router.pathname;
+
     const sources = postData.sources.map((link: string) => (
         <li key={link}>
             <a href={link} target="_blank" rel="noreferrer">
@@ -68,12 +75,33 @@ export default function Post({ postData }: any) {
                             </p>
                         )}
                         {postData.bulkDensityPoundsPerCubicYard && <p>Bulk Density: {postData.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
-                        <p>
-                            Source(s): <ul>{sources}</ul>
-                        </p>
+                        <p>Source(s):</p>
+                        <ul>{sources}</ul>
+                        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
                     </CardContent>
                 </Card>
-                <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+
+                <Accordion sx={{ marginTop: 1 }}>
+                    <AccordionSummary expandIcon={<ExpandMoreOutlined />} aria-controls="panel1a-content" id="panel1a-header">
+                        <Typography>Comments</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Alert severity="info">
+                            <AlertTitle>Beta</AlertTitle>
+                            If you have any additional data regarding the compostability of {postData.title} <strong>please leave a comment!</strong>
+                        </Alert>
+                        <br />
+                        <ReactCusdis
+                            attrs={{
+                                host: "https://cusdis.com",
+                                appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
+                                pageId: postData.id,
+                                pageTitle: postData.title,
+                                pageUrl: currentUri,
+                            }}
+                        />
+                    </AccordionDetails>
+                </Accordion>
             </article>
         </Layout>
     );
