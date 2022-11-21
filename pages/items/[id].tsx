@@ -5,7 +5,7 @@ import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
 import Rainbow from "rainbowvis.js";
 import { useRouter } from "next/router";
-import { ReactCusdis } from "react-cusdis";
+import { ReactCusdis } from "../../components/ReactCusdis";
 import { ExpandMoreOutlined } from "@mui/icons-material";
 
 import { Accordion, AccordionDetails, AccordionSummary, Alert, AlertTitle, Card, CardContent, Typography } from "@mui/material";
