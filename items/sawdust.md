@@ -1,5 +1,6 @@
 ---
 title: "Sawdust"
+compostable: true
 singular: true
 typeOfValue: "Average"
 percentNitrogen: .24

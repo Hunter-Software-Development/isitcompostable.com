@@ -1,5 +1,6 @@
 ---
 title: "Leaves"
+compostable: true
 singular: false
 typeOfValue: "Average"
 percentNitrogen: .9

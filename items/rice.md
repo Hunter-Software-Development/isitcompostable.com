@@ -1,5 +1,6 @@
 ---
 title: "Rice"
+compostable: true
 singular: true
 typeOfValue: null
 percentNitrogen: null

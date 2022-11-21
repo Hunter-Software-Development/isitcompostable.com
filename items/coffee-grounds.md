@@ -1,5 +1,6 @@
 ---
 title: "Coffee Grounds"
+compostable: true
 singular: false
 typeOfValue: "Typical"
 percentNitrogen: 2.28

@@ -1,5 +1,6 @@
 ---
 title: "Urine"
+compostable: true
 singular: true
 typeOfValue: "Typical"
 percentNitrogen: .93

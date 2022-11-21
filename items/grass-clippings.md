@@ -1,5 +1,6 @@
 ---
 title: "Grass Clippings"
+compostable: true
 singular: false
 typeOfValue: "Average"
 percentNitrogen: 3.4

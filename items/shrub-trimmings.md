@@ -1,13 +1,11 @@
 ---
-title: "Corn Cobs"
+title: "Shrub Trimmings"
 compostable: true
 singular: false
-typeOfValue: "Average"
-percentNitrogen: .6
-carbonToNitrogenRatio: 98
+typeOfValue: "Typical"
+percentNitrogen: 1
+carbonToNitrogenRatio: 53
 moistureContentPercentage: 15
-bulkDensityPoundsPerCubicYard: 557
+bulkDensityPoundsPerCubicYard: 429
 sources: ["https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf", "http://compost.css.cornell.edu/CompostCalculator.xlsx"]
 ---
-
-Corn Cobs are compostable! They are a brown.
