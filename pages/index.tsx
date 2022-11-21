@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData } from "../lib/items";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";

@@ -18,14 +18,14 @@ export default function Search({ allPostsData }: any): JSX.Element {
                 var result = allPostsData.find((obj: any) => {
                     return obj.title === newValue;
                 });
-                router.push("/posts/" + result.id);
+                router.push("/items/" + result.id);
             }}
             renderOption={(props, option, { inputValue }) => {
                 const matches = match(option.title, inputValue, { insideWords: true });
                 const parts = parse(option.title, matches);
 
                 return (
-                    <Link href={`/posts/${option.id}`}>
+                    <Link href={`/items/${option.id}`}>
                         <li {...props}>
                             {parts.map((part, index) => (
                                 <span

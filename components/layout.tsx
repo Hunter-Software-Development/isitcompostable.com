@@ -2,8 +2,6 @@ import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
-import Search from "./search";
-// import { getSortedPostsData } from "../lib/posts";
 
 const name = "Is It Compostable?";
 export const siteTitle = "Is It Compostable";
