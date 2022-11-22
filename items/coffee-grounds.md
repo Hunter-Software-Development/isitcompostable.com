@@ -14,4 +14,4 @@ sources:
   - 'http://www.google.com/patents/US3823487'
 ---
 
-Coffee Grounds are compostable! They are a green and have a high moisture content.
+Coffee Grounds are compostable! They are a green and have a high mosture content.
