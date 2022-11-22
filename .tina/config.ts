@@ -23,6 +23,7 @@ export default defineConfig({
                 name: "item",
                 label: "Items",
                 path: "items",
+                format: "md",
                 fields: [
                     {
                         type: "string",
@@ -42,27 +43,33 @@ export default defineConfig({
                     {
                         type: "string",
                         name: "typeOfValue",
+                        required: false,
                     },
                     {
                         type: "number",
                         name: "percentNitrogen",
+                        required: false,
                     },
                     {
                         type: "number",
                         name: "carbonToNitrogenRatio",
+                        required: false,
                     },
                     {
                         type: "number",
                         name: "moistureContentPercentage",
+                        required: false,
                     },
                     {
                         type: "number",
                         name: "bulkDensityPoundsPerCubicYard",
+                        required: false,
                     },
                     {
                         type: "string",
                         name: "sources",
                         list: true,
+                        required: true,
                     },
                     {
                         type: "rich-text",
@@ -74,6 +81,12 @@ export default defineConfig({
                 ui: {
                     // This is an DEMO router. You can remove this to fit your site
                     router: ({ document }) => `/items/${document._sys.filename}`,
+                    filename: {
+                        readonly: true,
+                        slugify: (values) => {
+                            return `${values?.title?.toLowerCase().replace(/ /g, "-")}`;
+                        },
+                    },
                 },
             },
         ],

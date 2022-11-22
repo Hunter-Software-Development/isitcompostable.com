@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/items";
+import { getAllPostIds } from "../../lib/items";
 import Head from "next/head";
 
 import utilStyles from "../../styles/utils.module.css";
@@ -10,13 +10,19 @@ import { ExpandMoreOutlined } from "@mui/icons-material";
 
 import { Accordion, AccordionDetails, AccordionSummary, Alert, AlertTitle, Card, CardContent, Typography } from "@mui/material";
 
+import { useTina } from "tinacms/dist/react";
+import { client } from "../../.tina/__generated__/client";
+
 export async function getStaticProps({ params }: { params: { id: number } }) {
     // Add the "await" keyword like this:
-    const postData = await getPostData(params.id);
-
+    const { data, query, variables } = await client.queries.item({
+        relativePath: `${params.id}.md`,
+    });
     return {
         props: {
-            postData,
+            data,
+            query,
+            variables,
         },
     };
 }
@@ -29,11 +35,19 @@ export async function getStaticPaths() {
     };
 }
 
-export default function Post({ postData }: any) {
+export default function Post(props: any) {
+    const { data } = useTina({
+        query: props.query,
+        variables: props.variables,
+        data: props.data,
+    });
+
+    console.log(data);
+
     const router = useRouter();
     const currentUri = "https://isitcompostable.com" + router.pathname;
 
-    const sources = postData.sources.map((link: string) => (
+    const sources = data.item.sources.map((link: string) => (
         <li key={link}>
             <a href={link} target="_blank" rel="noreferrer">
                 {link}
@@ -44,40 +58,40 @@ export default function Post({ postData }: any) {
     const rainbow = new Rainbow();
     rainbow.setSpectrum("green", "brown");
     rainbow.setNumberRange(0, 772);
-    const color: string = rainbow.colourAt(postData.carbonToNitrogenRatio);
+    const color: string = rainbow.colourAt(data.item.carbonToNitrogenRatio);
 
     return (
         <Layout>
             <Head>
-                <title>{postData.title}</title>
+                <title>{data.item.title}</title>
             </Head>
             <article>
-                <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+                <h1 className={utilStyles.headingXl}>{data.item.title}</h1>
                 <div style={{ marginBottom: "5px" }}>
-                    {postData.singular ? "Is" : "Are"} {postData.title} Compostable?
+                    {data.item.singular ? "Is" : "Are"} {data.item.title} Compostable?
                 </div>
                 <Card variant="outlined">
                     <CardContent>
-                        {postData.typeOfValue && <div className={utilStyles.lightText}>{postData.typeOfValue} Values</div>}
-                        {postData.carbonToNitrogenRatio && (
+                        {data.item.typeOfValue && <div className={utilStyles.lightText}>{data.item.typeOfValue} Values</div>}
+                        {data.item.carbonToNitrogenRatio && (
                             <p>
-                                Carbon To Nitrogen Ratio: <b style={{ color: `#${color}` }}>{postData.carbonToNitrogenRatio}:1</b>
+                                Carbon To Nitrogen Ratio: <b style={{ color: `#${color}` }}>{data.item.carbonToNitrogenRatio}:1</b>
                             </p>
                         )}
-                        {postData.percentNitrogen && (
+                        {data.item.percentNitrogen && (
                             <p>
-                                Percent Nitrogen <small>(Dry Weight)</small>: {postData.percentNitrogen}%
+                                Percent Nitrogen <small>(Dry Weight)</small>: {data.item.percentNitrogen}%
                             </p>
                         )}
-                        {postData.moistureContentPercentage && (
+                        {data.item.moistureContentPercentage && (
                             <p>
-                                Moisture Content Percentage <small>(Wet Weight)</small>: {postData.moistureContentPercentage}%
+                                Moisture Content Percentage <small>(Wet Weight)</small>: {data.item.moistureContentPercentage}%
                             </p>
                         )}
-                        {postData.bulkDensityPoundsPerCubicYard && <p>Bulk Density: {postData.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
+                        {data.item.bulkDensityPoundsPerCubicYard && <p>Bulk Density: {data.item.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
                         <p>Source(s):</p>
                         <ul>{sources}</ul>
-                        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+                        <div dangerouslySetInnerHTML={{ __html: data.item.contentHtml }} />
                     </CardContent>
                 </Card>
 
@@ -88,15 +102,15 @@ export default function Post({ postData }: any) {
                     <AccordionDetails>
                         <Alert severity="info">
                             <AlertTitle>Beta</AlertTitle>
-                            If you have any additional data regarding the compostability of {postData.title} <strong>please leave a comment!</strong>
+                            If you have any additional data regarding the compostability of {data.item.title} <strong>please leave a comment!</strong>
                         </Alert>
                         <br />
                         <ReactCusdis
                             attrs={{
                                 host: "https://cusdis.com",
                                 appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
-                                pageId: postData.id,
-                                pageTitle: postData.title,
+                                pageId: data.item.id,
+                                pageTitle: data.item.title,
                                 pageUrl: currentUri,
                             }}
                         />
