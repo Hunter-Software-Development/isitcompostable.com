@@ -111,7 +111,12 @@ export default function Post(props: any) {
                         <Accordion onChange={({ expanded }) => console.log(expanded)} accordion>
                             <Panel title="Sources">{sources}</Panel>
                             <Panel title="Comments">
-                                <Notification>
+                                <Notification
+                                    closeable
+                                    overrides={{
+                                        Body: { style: { width: "auto" } },
+                                    }}
+                                >
                                     If you have any additional data regarding the compostability of {data.item.title} <strong>please leave a comment!</strong>
                                 </Notification>
                                 <br />

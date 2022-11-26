@@ -1,5 +1,5 @@
 import router from "next/router";
-import { Select } from "baseui/select";
+import { Select, SIZE, TYPE } from "baseui/select";
 
 export default function Search({ allPostsData }: any): JSX.Element {
     return (
@@ -10,10 +10,9 @@ export default function Search({ allPostsData }: any): JSX.Element {
                 onChange={(params) => {
                     router.push("/items/" + params.value[0].id);
                 }}
+                type={TYPE.search}
+                size={SIZE.large}
                 placeholder="Search"
-
-
-
                 required
                 autoFocus
             />
