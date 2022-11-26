@@ -9,12 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/lab": "^5.0.0-alpha.108",
-    "@mui/material": "^5.10.13",
     "@tinacms/cli": "^1.0.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
