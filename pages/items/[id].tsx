@@ -8,10 +8,16 @@ import { useRouter } from "next/router";
 import { ReactCusdis } from "../../components/ReactCusdis";
 import { ExpandMoreOutlined } from "@mui/icons-material";
 
-import { Accordion, AccordionDetails, AccordionSummary, Alert, AlertTitle, Card, CardContent, Typography } from "@mui/material";
+import { Alert, AlertTitle } from "@mui/material";
+import { Card, StyledAction, StyledBody } from "baseui/card";
+import { Accordion, Panel } from "baseui/accordion";
+import { ListItem, ListItemLabel } from "baseui/list";
+import { StyledLink } from "baseui/link";
+import { Notification, KIND } from "baseui/notification";
 
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../.tina/__generated__/client";
+import { Check } from "baseui/icon";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     // Add the "await" keyword like this:
@@ -48,11 +54,13 @@ export default function Post(props: any) {
     const currentUri = "https://isitcompostable.com" + router.pathname;
 
     const sources = data.item.sources.map((link: string) => (
-        <li key={link}>
-            <a href={link} target="_blank" rel="noreferrer">
-                {link}
-            </a>
-        </li>
+        <ListItem key={link}>
+            <ListItemLabel>
+                <StyledLink href={link} target="_blank" rel="noreferrer">
+                    {link}
+                </StyledLink>
+            </ListItemLabel>
+        </ListItem>
     ));
 
     const rainbow = new Rainbow();
@@ -67,11 +75,18 @@ export default function Post(props: any) {
             </Head>
             <article>
                 <h1 className={utilStyles.headingXl}>{data.item.title}</h1>
-                <div style={{ marginBottom: "5px" }}>
+                <h4>
                     {data.item.singular ? "Is" : "Are"} {data.item.title} Compostable?
-                </div>
-                <Card variant="outlined">
-                    <CardContent>
+                </h4>
+
+                <Card>
+                    <StyledBody>
+                        <div className={utilStyles.lightText}></div>
+
+                        <p>
+                            {data.item.title} {data.item.singular ? "Is" : "Are"} {data.item.compostable ? "" : "Not"} Compostable!
+                        </p>
+
                         {data.item.typeOfValue && <div className={utilStyles.lightText}>{data.item.typeOfValue} Values</div>}
                         {data.item.carbonToNitrogenRatio && (
                             <p>
@@ -89,33 +104,30 @@ export default function Post(props: any) {
                             </p>
                         )}
                         {data.item.bulkDensityPoundsPerCubicYard && <p>Bulk Density: {data.item.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
-                        <p>Source(s):</p>
-                        <ul>{sources}</ul>
                         <div dangerouslySetInnerHTML={{ __html: data.item.contentHtml }} />
-                    </CardContent>
-                </Card>
+                    </StyledBody>
 
-                <Accordion sx={{ marginTop: 1 }}>
-                    <AccordionSummary expandIcon={<ExpandMoreOutlined />} aria-controls="panel1a-content" id="panel1a-header">
-                        <Typography>Comments</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Alert severity="info">
-                            <AlertTitle>Beta</AlertTitle>
-                            If you have any additional data regarding the compostability of {data.item.title} <strong>please leave a comment!</strong>
-                        </Alert>
-                        <br />
-                        <ReactCusdis
-                            attrs={{
-                                host: "https://cusdis.com",
-                                appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
-                                pageId: data.item.id,
-                                pageTitle: data.item.title,
-                                pageUrl: currentUri,
-                            }}
-                        />
-                    </AccordionDetails>
-                </Accordion>
+                    <StyledAction>
+                        <Accordion onChange={({ expanded }) => console.log(expanded)} accordion>
+                            <Panel title="Sources">{sources}</Panel>
+                            <Panel title="Comments">
+                                <Notification>
+                                    If you have any additional data regarding the compostability of {data.item.title} <strong>please leave a comment!</strong>
+                                </Notification>
+                                <br />
+                                <ReactCusdis
+                                    attrs={{
+                                        host: "https://cusdis.com",
+                                        appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
+                                        pageId: data.item.id,
+                                        pageTitle: data.item.title,
+                                        pageUrl: currentUri,
+                                    }}
+                                />
+                            </Panel>
+                        </Accordion>
+                    </StyledAction>
+                </Card>
             </article>
         </Layout>
     );

@@ -21,6 +21,7 @@
     "@types/react-dom": "18.0.8",
     "@vercel/analytics": "^0.1.5",
     "autosuggest-highlight": "^3.3.4",
+    "baseui": "^12.2.0",
     "date-fns": "^2.29.3",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
@@ -32,10 +33,13 @@
     "react-dom": "18.2.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
+    "styletron-engine-atomic": "^1.5.0",
+    "styletron-react": "^6.1.0",
     "tinacms": "^1.0.1",
     "typescript": "4.8.4"
   },
   "devDependencies": {
-    "@types/autosuggest-highlight": "^3.2.0"
+    "@types/autosuggest-highlight": "^3.2.0",
+    "eslint-plugin-baseui": "^12.2.0"
   }
 }
