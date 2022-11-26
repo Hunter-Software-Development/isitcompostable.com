@@ -17,7 +17,7 @@ import { styletron } from "../lib/styletron";
 import { Provider as StyletronProvider } from "styletron-react";
 import { LightTheme, BaseProvider, DarkTheme } from "baseui";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, KIND, SHAPE, SIZE } from "baseui/button";
 import { Block } from "baseui/block";
 
@@ -40,6 +40,49 @@ export const siteTitle = "Is It Compostable";
 export default function Layout({ children, home, allPostsData }: { children?: JSX.Element[] | JSX.Element; home?: boolean; allPostsData?: any }) {
     const [theme, setTheme] = useState(THEME.light);
 
+    useEffect(() => {
+        initializeDarkMode();
+    }, []);
+
+    const selectTheme = (theme: string) => {
+        if (theme === "dark") {
+            setTheme(THEME.dark);
+            localStorage.setItem("theme", "dark");
+            document.documentElement.style.backgroundColor = "rgb(20, 20, 20)";
+        } else {
+            setTheme(THEME.light);
+            localStorage.setItem("theme", "light");
+            document.documentElement.style.backgroundColor = "";
+        }
+    };
+
+    const toggleDarkMode = () => {
+        // if set via local storage previously
+        if (localStorage.getItem("theme")) {
+            if (localStorage.getItem("theme") === "light") {
+                selectTheme("dark");
+            } else {
+                selectTheme("light");
+            }
+            // if NOT set via local storage previously
+        } else {
+            selectTheme("dark");
+        }
+    };
+
+    const initializeDarkMode = () => {
+        if (!localStorage.getItem("theme")) {
+            selectTheme("dark");
+            return;
+        }
+
+        if (localStorage.getItem("theme") === "dark") {
+            selectTheme("dark");
+        } else {
+            selectTheme("light");
+        }
+    };
+
     return (
         <StyletronProvider value={styletron}>
             <BaseProvider theme={theme === THEME.light ? LightTheme : DarkTheme}>
@@ -58,7 +101,7 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
                         <NavigationList $align={ALIGN.right}>
                             <NavigationItem>
                                 <Button
-                                    onClick={() => setTheme(theme === THEME.light ? THEME.dark : THEME.light)}
+                                    onClick={() => toggleDarkMode()}
                                     size={SIZE.compact}
                                     kind={KIND.tertiary}
                                     shape={SHAPE.square}
