@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 
 import Link from "next/link";
 import Home from "./home";
@@ -65,7 +64,7 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
 
     const initializeDarkMode = () => {
         if (!localStorage.getItem("theme")) {
-            selectTheme("dark");
+            selectTheme("light");
             return;
         }
 
@@ -89,7 +88,7 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
                         <meta name="twitter:card" content="summary_large_image" />
                     </Head>
 
-                    <Header toggleDarkMode={toggleDarkMode} theme={theme} THEME={THEME} home={home} />
+                    <Header toggleDarkMode={toggleDarkMode} theme={theme} THEME={THEME} home={home} allPostsData={allPostsData} />
 
                     {home ? (
                         <>

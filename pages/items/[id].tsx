@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import { getAllPostIds } from "../../lib/items";
+import { getAllPostIds, getSortedPostsData } from "../../lib/items";
 import Head from "next/head";
 
 import utilStyles from "../../styles/utils.module.css";
@@ -15,9 +15,10 @@ import { Notification, KIND } from "baseui/notification";
 
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../.tina/__generated__/client";
-import { Check } from "baseui/icon";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
+    const allPostsData = getSortedPostsData();
+
     // Add the "await" keyword like this:
     const { data, query, variables } = await client.queries.item({
         relativePath: `${params.id}.md`,
@@ -27,6 +28,7 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
             data,
             query,
             variables,
+            allPostsData,
         },
     };
 }
@@ -45,8 +47,6 @@ export default function Post(props: any) {
         variables: props.variables,
         data: props.data,
     });
-
-    console.log(data);
 
     const router = useRouter();
     const currentUri = "https://isitcompostable.com" + router.pathname;
@@ -69,7 +69,7 @@ export default function Post(props: any) {
     const compostabilityDeclaration = data.item.title + (data.item.singular ? " Is" : " Are") + (data.item.compostable ? "" : " Not") + " Compostable!";
 
     return (
-        <Layout>
+        <Layout allPostsData={props.allPostsData}>
             <Head>
                 <title>{compostabilityDeclaration}</title>
             </Head>

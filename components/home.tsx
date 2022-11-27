@@ -19,7 +19,7 @@ const Home = ({ name, allPostsData }: { name?: string; allPostsData: any }): JSX
                             <Heading>{name}</Heading>
                         </HeadingLevel>
                         <StyledDivider $size={SIZE.cell} />
-                        <Search allPostsData={allPostsData} />
+                        <Search allPostsData={allPostsData} size="large" />
                     </Cell>
                 </Grid>
             </div>
