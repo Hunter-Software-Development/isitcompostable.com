@@ -101,7 +101,7 @@ export default function Post(props: any) {
                                 Moisture Content Percentage <small>(Wet Weight)</small>: {data.item.moistureContentPercentage}%
                             </p>
                         )}
-                        {data.item.bulkDensityPoundsPerCubicYard && <p>Bulk Density: {data.item.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
+                        {data.item.bulkDensityPoundsPerCubicYard && data.item.bulkDensityPoundsPerCubicYard != 0 && <p>Bulk Density: {data.item.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
                         <div dangerouslySetInnerHTML={{ __html: data.item.contentHtml }} />
                     </StyledBody>
 

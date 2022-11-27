@@ -6,7 +6,6 @@ typeOfValue: Typical
 percentNitrogen: 2.28
 carbonToNitrogenRatio: 20
 moistureContentPercentage: 75
-bulkDensityPoundsPerCubicYard: 0
 sources:
   - 'http://compost.css.cornell.edu/CompostCalculator.xlsx'
   - >-
