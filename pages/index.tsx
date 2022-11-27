@@ -4,12 +4,6 @@ import utilStyles from "../styles/utils.module.css";
 
 import { getSortedPostsData } from "../lib/items";
 
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-import Search from "../components/search";
-
 export async function getStaticProps() {
     const allPostsData = getSortedPostsData();
     return {
@@ -20,16 +14,12 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }: any) {
-
     return (
-        <Layout home>
+        <Layout home allPostsData={allPostsData}>
             <Head>
                 <title>{siteTitle}</title>
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
             </Head>
-            <section className={utilStyles.headingMd}>
-                <Search allPostsData={allPostsData} />
-            </section>
         </Layout>
     );
 }
