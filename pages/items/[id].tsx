@@ -66,10 +66,12 @@ export default function Post(props: any) {
     rainbow.setNumberRange(0, 772);
     const color: string = rainbow.colourAt(data.item.carbonToNitrogenRatio);
 
+    const compostabilityDeclaration = data.item.title + (data.item.singular ? " Is" : " Are") + (data.item.compostable ? "" : " Not") + " Compostable!";
+
     return (
         <Layout>
             <Head>
-                <title>{data.item.title}</title>
+                <title>{compostabilityDeclaration}</title>
             </Head>
             <article>
                 <h1 className={utilStyles.headingXl}>{data.item.title}</h1>
@@ -81,9 +83,7 @@ export default function Post(props: any) {
                     <StyledBody>
                         <div className={utilStyles.lightText}></div>
 
-                        <p>
-                            {data.item.title} {data.item.singular ? "Is" : "Are"} {data.item.compostable ? "" : "Not"} Compostable!
-                        </p>
+                        <p>{compostabilityDeclaration}</p>
 
                         {data.item.typeOfValue && <div className={utilStyles.lightText}>{data.item.typeOfValue} Values</div>}
                         {data.item.carbonToNitrogenRatio && (
