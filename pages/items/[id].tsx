@@ -14,6 +14,7 @@ import { StyledLink } from "baseui/link";
 import { Notification, KIND } from "baseui/notification";
 
 import { useTina } from "tinacms/dist/react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { client } from "../../.tina/__generated__/client";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
@@ -102,7 +103,7 @@ export default function Post(props: any) {
                             </p>
                         )}
                         {data.item.bulkDensityPoundsPerCubicYard && data.item.bulkDensityPoundsPerCubicYard != 0 && <p>Bulk Density: {data.item.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
-                        <div dangerouslySetInnerHTML={{ __html: data.item.contentHtml }} />
+                        <TinaMarkdown content={data.item.body} />
                     </StyledBody>
 
                     <StyledAction>
