@@ -24,7 +24,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html>
+            <Html lang="en">
                 <Head>
                     {this.props.stylesheets.map((sheet, i) => (
                         <style className="_styletron_hydrate_" dangerouslySetInnerHTML={{ __html: sheet.css }} media={sheet.attrs.media} data-hydrate={sheet.attrs["data-hydrate"]} key={i} />

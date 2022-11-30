@@ -16,6 +16,7 @@ export default function Search({ allPostsData, size }: { allPostsData: any; size
             placeholder="Search"
             value={value}
             clearable={false}
+            aria-label={"Search"}
             overrides={{
                 StatefulMenu: {
                     props: {
