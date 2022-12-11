@@ -8,6 +8,9 @@ function generateSiteMap(items: any) {
      <url>
        <loc>${EXTERNAL_DATA_URL}</loc>
      </url>
+     <url>
+     <loc>${EXTERNAL_DATA_URL}/items</loc>
+   </url>
      ${items
          .map(({ params }: { params: { id: string } }) => {
              return `
