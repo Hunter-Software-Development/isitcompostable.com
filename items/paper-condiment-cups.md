@@ -6,4 +6,4 @@ sources:
 ---
 
 Paper condiment cups are a brown.  \
-They likely share C:N figures with [paper](https://isitcompostable.com/items/paper "Paper")&#x20;
+They likely share C:N figures with [paper](https://isitcompostable.com/items/paper "Paper").
