@@ -12,6 +12,7 @@ import { LightTheme, BaseProvider, DarkTheme } from "baseui";
 import { useEffect, useState } from "react";
 import { Block } from "baseui/block";
 import Header from "./header";
+import { Breadcrumbs } from "baseui/breadcrumbs";
 
 const blockProps = {
     color: "contentPrimary",
@@ -92,9 +93,6 @@ export default function Layout({ children, home, allPostsData }: { children?: JS
                     ) : (
                         <div className={styles.container}>
                             <main>{children}</main>
-                            <div className={styles.backToHome}>
-                                <Link href="/">← Back to home</Link>
-                            </div>
                         </div>
                     )}
                 </Block>
