@@ -18,6 +18,7 @@ const Home = ({ name, allPostsData }: { name?: string; allPostsData: any }): JSX
                 openGraph={{
                     url: "https://isitcompostable.com",
                     title: title,
+                    type: "website",
                     description: description,
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
                     siteName: "Is It Compostable?",

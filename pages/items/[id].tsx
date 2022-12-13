@@ -81,6 +81,7 @@ export default function Post(props: any) {
                 openGraph={{
                     url: currentUri,
                     title: compostabilityQuestion,
+                    type: "website",
                     description: compostabilityDeclaration,
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
                     siteName: "Is It Compostable?",

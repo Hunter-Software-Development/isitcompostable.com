@@ -29,6 +29,7 @@ export default function Home({ allPostsData }: any) {
                 openGraph={{
                     url: "https://isitcompostable.com/items",
                     title: "All Items",
+                    type: "website",
                     description: "All Items",
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
                     siteName: "Is It Compostable?",
