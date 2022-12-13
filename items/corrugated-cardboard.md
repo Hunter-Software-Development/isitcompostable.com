@@ -9,6 +9,6 @@ moistureContentPercentage: 8
 bulkDensityPoundsPerCubicYard: 259
 sources:
   - 'https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf'
-  - 'http://compost.css.cornell.edu/CompostCalculator.xlsx'
+  - 'https://compost.css.cornell.edu/CompostCalculator.xlsx'
 ---
 

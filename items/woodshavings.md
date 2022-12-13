@@ -1,7 +1,6 @@
 ---
 title: Woodshavings
 compostable: true
-percentNitrogen: 0
 carbonToNitrogenRatio: 700
 sources:
   - 'https://www.uaex.uada.edu/publications/pdf/FSA-2087.pdf'

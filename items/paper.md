@@ -8,6 +8,6 @@ carbonToNitrogenRatio: 152.5
 moistureContentPercentage: 19
 sources:
   - 'https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf'
-  - 'http://compost.css.cornell.edu/CompostCalculator.xlsx'
+  - 'https://compost.css.cornell.edu/CompostCalculator.xlsx'
 ---
 
