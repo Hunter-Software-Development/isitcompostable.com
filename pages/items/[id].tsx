@@ -101,23 +101,11 @@ export default function Post(props: any) {
             />
 
             <article>
-                <Card
-                // title={data.item.title}
-                // headerImage={data.item.imageLink}
-                // overrides={{
-                //     HeaderImage: {
-                //         style: ({ $theme }) => ({
-                //             maxHeight: "200px",
-                //             width: "100%",
-                //             objectFit: "cover",
-                //         }),
-                //     },
-                // }}
-                >
+                <Card>
                     <h2>{compostabilityQuestion}</h2>
 
                     <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
-                        <Image src={data.item.imageLink} alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} priority fill />
+                        <Image src={data.item.imageLink} alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} fill={true} priority={true} />
                     </div>
                     <StyledBody>
                         <h1>{data.item.title}</h1>
@@ -145,7 +133,7 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <Accordion accordion renderAll>
+                        <Accordion accordion>
                             <Panel title="Sources">
                                 {sources}
                                 <ListItem key={data.item.imageLink}>

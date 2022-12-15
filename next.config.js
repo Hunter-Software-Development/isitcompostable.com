@@ -23,6 +23,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "**.wikimedia.org",
             },
+            {
+                protocol: "https",
+                hostname: "isitcompostable.com",
+            },
         ],
     },
 };
