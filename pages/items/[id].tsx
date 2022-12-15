@@ -19,6 +19,7 @@ import { client } from "../../.tina/__generated__/client";
 import { NextSeo } from "next-seo";
 import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
+import Image from "next/image";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
@@ -99,22 +100,24 @@ export default function Post(props: any) {
             />
 
             <article>
-                <h2>{compostabilityQuestion}</h2>
-
                 <Card
-                    headerImage={data.item.imageLink}
-                    title={data.item.title}
-                    overrides={{
-                        HeaderImage: {
-                            style: ({ $theme }) => ({
-                                maxHeight: "200px",
-                                width: "100%",
-                                objectFit: "cover",
-                            }),
-                        },
-                    }}
+                // title={data.item.title}
+                // headerImage={data.item.imageLink}
+                // overrides={{
+                //     HeaderImage: {
+                //         style: ({ $theme }) => ({
+                //             maxHeight: "200px",
+                //             width: "100%",
+                //             objectFit: "cover",
+                //         }),
+                //     },
+                // }}
                 >
+                    <h2>{compostabilityQuestion}</h2>
+
+                    <Image src={data.item.imageLink} alt={data.item.title} width={750} height={750} style={{ maxHeight: "200px", width: "100%", objectFit: "cover", padding: "-16px" }} priority />
                     <StyledBody>
+                        <h1>{data.item.title}</h1>
                         <div className={utilStyles.lightText}></div>
                         <p>{compostabilityDeclaration}</p>
 
