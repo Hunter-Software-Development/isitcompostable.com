@@ -1,13 +1,17 @@
 ---
-title: "Leaves"
+title: Leaves
 compostable: true
 singular: false
-typeOfValue: "Average"
-percentNitrogen: .9
+imageLink: >-
+  https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Illustrations_of_leaves_in_%27De_historia...%27_Wellcome_L0051242.jpg/640px-Illustrations_of_leaves_in_%27De_historia...%27_Wellcome_L0051242.jpg
+typeOfValue: Average
+percentNitrogen: 0.9
 carbonToNitrogenRatio: 54
 moistureContentPercentage: 38
 bulkDensityPoundsPerCubicYard: null
-sources: ["https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf", "https://compost.css.cornell.edu/CompostCalculator.xlsx"]
+sources:
+  - 'https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf'
+  - 'https://compost.css.cornell.edu/CompostCalculator.xlsx'
 ---
 
 Leaves are compostable! They are a brown.

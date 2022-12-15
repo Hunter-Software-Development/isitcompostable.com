@@ -2,6 +2,8 @@
 title: Straw
 compostable: true
 singular: true
+imageLink: >-
+  https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Paddy_straw_near_Kothapeta%2C_Eluru.jpg/640px-Paddy_straw_near_Kothapeta%2C_Eluru.jpg
 typeOfValue: Average
 percentNitrogen: 0.7
 carbonToNitrogenRatio: 80

@@ -13,6 +13,18 @@ const nextConfig = {
         };
         return config;
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "www.publicdomainpictures.net",
+            },
+            {
+                protocol: "https",
+                hostname: "**.wikimedia.org",
+            },
+        ],
+    },
 };
 
 module.exports = nextConfig;

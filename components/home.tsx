@@ -23,6 +23,11 @@ const Home = ({ name, allPostsData }: { name?: string; allPostsData: any }): JSX
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
                     siteName: "Is It Compostable?",
                 }}
+                twitter={{
+                    handle: "@isitcompostable",
+                    site: "@isitcompostable",
+                    cardType: "summary_large_image",
+                }}
             />
 
             <div className={homeStyles.gridLayout}>

@@ -2,6 +2,8 @@
 title: Grass Clippings
 compostable: true
 singular: false
+imageLink: >-
+  https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Grass_dsc08672-nevit.jpg/640px-Grass_dsc08672-nevit.jpg
 typeOfValue: Average
 percentNitrogen: 3.4
 carbonToNitrogenRatio: 17
@@ -17,4 +19,3 @@ Grass Clippings are compostable! They are a green.\
 \
 "If lawn treated with herbicide, leave on lawn to decompose.
 Good source of nitrogen when fresh."\[3]
-

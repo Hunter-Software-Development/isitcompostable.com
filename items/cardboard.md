@@ -2,6 +2,8 @@
 title: Cardboard
 compostable: true
 singular: true
+imageLink: >-
+  https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Almost_done_%289046914035%29.jpg/640px-Almost_done_%289046914035%29.jpg
 typeOfValue: Typical
 carbonToNitrogenRatio: 170
 sources:
@@ -15,4 +17,3 @@ sources:
 Shiny cardboard is covered in plastics and should not be composted.
 
 Avoid wax coating, tape, and glue.
-

@@ -34,6 +34,11 @@ export default function Home({ allPostsData }: any) {
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
                     siteName: "Is It Compostable?",
                 }}
+                twitter={{
+                    handle: "@isitcompostable",
+                    site: "@isitcompostable",
+                    cardType: "summary_large_image",
+                }}
             />
             <Head>
                 <title>{siteTitle}</title>

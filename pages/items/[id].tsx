@@ -7,11 +7,11 @@ import Rainbow from "rainbowvis.js";
 import { useRouter } from "next/router";
 import { ReactCusdis } from "../../components/ReactCusdis";
 
-import { Card, StyledAction, StyledBody } from "baseui/card";
+import { Card, StyledAction, StyledBody, StyledThumbnail } from "baseui/card";
 import { Accordion, Panel } from "baseui/accordion";
 import { ListItem, ListItemLabel } from "baseui/list";
 import { StyledLink } from "baseui/link";
-import { Notification, KIND } from "baseui/notification";
+import { Notification } from "baseui/notification";
 
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
@@ -67,8 +67,13 @@ export default function Post(props: any) {
 
     const rainbow = new Rainbow();
     rainbow.setSpectrum("green", "brown");
-    rainbow.setNumberRange(0, 772);
-    const color: string = rainbow.colourAt(data.item.carbonToNitrogenRatio);
+    rainbow.setNumberRange(0, 60);
+    let color: string;
+    if (data.item.carbonToNitrogenRatio) {
+        color = rainbow.colourAt(data.item.carbonToNitrogenRatio);
+    } else {
+        color = "brown";
+    }
 
     const compostabilityQuestion = (data.item.singular ? "Is " : "Are ") + data.item.title + " Compostable?";
     const compostabilityDeclaration = data.item.title + (data.item.singular ? " Is" : " Are") + (data.item.compostable ? "" : " Not") + " Compostable!";
@@ -77,7 +82,7 @@ export default function Post(props: any) {
         <Layout allPostsData={props.allPostsData}>
             <NextSeo
                 title={compostabilityQuestion}
-                description={compostabilityQuestion + " " + compostabilityDeclaration}
+                description={compostabilityQuestion + " " + compostabilityDeclaration + " " + data.item.body}
                 openGraph={{
                     url: currentUri,
                     title: compostabilityQuestion,
@@ -86,16 +91,31 @@ export default function Post(props: any) {
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
                     siteName: "Is It Compostable?",
                 }}
+                twitter={{
+                    handle: "@isitcompostable",
+                    site: "@isitcompostable",
+                    cardType: "summary_large_image",
+                }}
             />
 
             <article>
-                <h1 className={utilStyles.headingXl}>{data.item.title}</h1>
-                <h4>{compostabilityQuestion}</h4>
+                <h2>{compostabilityQuestion}</h2>
 
-                <Card>
+                <Card
+                    headerImage={data.item.imageLink}
+                    title={data.item.title}
+                    overrides={{
+                        HeaderImage: {
+                            style: ({ $theme }) => ({
+                                maxHeight: "200px",
+                                width: "100%",
+                                objectFit: "cover",
+                            }),
+                        },
+                    }}
+                >
                     <StyledBody>
                         <div className={utilStyles.lightText}></div>
-
                         <p>{compostabilityDeclaration}</p>
 
                         {data.item.typeOfValue && <div className={utilStyles.lightText}>{data.item.typeOfValue} Values</div>}
@@ -119,8 +139,19 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <Accordion onChange={({ expanded }) => console.log(expanded)} accordion renderAll>
-                            <Panel title="Sources">{sources}</Panel>
+                        <Accordion accordion renderAll>
+                            <Panel title="Sources">
+                                {sources}
+                                <ListItem key={data.item.imageLink}>
+                                    <ListItemLabel>
+                                        Image courtesy of:
+                                        <br />
+                                        <StyledLink href={data.item.imageLink} target="_blank" rel="noreferrer">
+                                            {data.item.imageLink}
+                                        </StyledLink>
+                                    </ListItemLabel>
+                                </ListItem>
+                            </Panel>
                             <Panel title="Comments">
                                 <Notification
                                     closeable
@@ -140,6 +171,17 @@ export default function Post(props: any) {
                                         pageUrl: currentUri,
                                     }}
                                 />
+                            </Panel>
+                            <Panel title="See Also">
+                                {props.allPostsData.map(function (o: any, i: any) {
+                                    return (
+                                        <ListItem key={o.title}>
+                                            <ListItemLabel>
+                                                <Link href={`/items/${o.id}`}>{o.title}</Link>
+                                            </ListItemLabel>
+                                        </ListItem>
+                                    );
+                                })}
                             </Panel>
                         </Accordion>
                     </StyledAction>

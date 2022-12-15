@@ -1,6 +1,8 @@
 ---
 title: Cranberry stems or leaves
 compostable: true
+imageLink: >-
+  https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Vaccinium_macrocarpon_%28as_Oxycoccus_macrocarpus%29_BB-1913.png/640px-Vaccinium_macrocarpon_%28as_Oxycoccus_macrocarpus%29_BB-1913.png
 typeOfValue: Typical
 percentNitrogen: 0.9
 carbonToNitrogenRatio: 61
