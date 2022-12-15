@@ -20,6 +20,7 @@ import { NextSeo } from "next-seo";
 import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
+import { relative } from "path";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
@@ -115,7 +116,9 @@ export default function Post(props: any) {
                 >
                     <h2>{compostabilityQuestion}</h2>
 
-                    <Image src={data.item.imageLink} alt={data.item.title} key={data.item.imageLink} width={750} height={750} style={{ maxHeight: "200px", width: "100%", objectFit: "cover", padding: "-16px" }} priority />
+                    <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
+                        <Image src={data.item.imageLink} alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} priority fill />
+                    </div>
                     <StyledBody>
                         <h1>{data.item.title}</h1>
                         <div className={utilStyles.lightText}></div>
