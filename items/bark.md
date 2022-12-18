@@ -8,6 +8,6 @@ carbonToNitrogenRatio: 115
 sources:
   - >-
     https://ag.umass.edu/sites/ag.umass.edu/files/fact-sheets/pdf/WasteManagementAndComposting09-57_0.pdf
-image: /uploads/White_Oak_Quercus_alba_Tree_Bark_3264px.jpg
+image: White_Oak_Quercus_alba_Tree_Bark_3264px.jpg
 ---
 
