@@ -41,6 +41,11 @@ export default defineConfig({
                         name: "singular",
                     },
                     {
+                        name: "image",
+                        label: "Image",
+                        type: "image",
+                    },
+                    {
                         name: "imageLink",
                         label: "Image Link",
                         type: "string",
