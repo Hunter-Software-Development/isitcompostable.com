@@ -91,7 +91,7 @@ export default function Post(props: any) {
                     <h2>{compostabilityQuestion}</h2>
 
                     <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
-                        <Image src="/White_Oak_Quercus_alba_Tree_Bark_3264px.jpg" alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} fill={true} priority={true} />
+                        <Image src="/White_Oak_Quercus_alba_Tree_Bark_3264px.jpg" alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} placeholder="blur" fill={true} priority={true} />
                     </div>
                     <StyledBody>
                         <h1>{data.item.title}</h1>
