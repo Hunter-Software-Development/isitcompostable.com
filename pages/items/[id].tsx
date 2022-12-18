@@ -1,6 +1,5 @@
 import Layout from "../../components/layout";
 import { getAllPostIds, getSortedPostsData } from "../../lib/items";
-import Head from "next/head";
 
 import utilStyles from "../../styles/utils.module.css";
 import Rainbow from "rainbowvis.js";
@@ -20,7 +19,7 @@ import { NextSeo } from "next-seo";
 import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
-import { relative } from "path";
+import { getPlaiceholder } from "plaiceholder";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
@@ -29,12 +28,23 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
     const { data, query, variables } = await client.queries.item({
         relativePath: `${params.id}.md`,
     });
+
+    await new Promise(resolve => setTimeout(resolve, 20000));
+
+    const { base64, img } = await getPlaiceholder(data.item.imageLink ?? "", {
+        size: 64
+    });
+
     return {
         props: {
             data,
             query,
             variables,
             allPostsData,
+            imageProps: {
+                ...img,
+                blurDataURL: base64,
+            },
         },
     };
 }
@@ -105,7 +115,7 @@ export default function Post(props: any) {
                     <h2>{compostabilityQuestion}</h2>
 
                     <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
-                        <Image src={data.item.imageLink} alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} fill={true} priority={true} />
+                        <Image src={props.imageProps.src} blurDataURL={props.imageProps.blurDataURL} alt={`public${data.item.image}`} key={data.item.imageLink} style={{ objectFit: "cover" }} placeholder="blur" fill priority />
                     </div>
                     <StyledBody>
                         <h1>{data.item.title}</h1>
