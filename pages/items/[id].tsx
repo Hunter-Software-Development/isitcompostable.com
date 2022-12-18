@@ -21,6 +21,7 @@ import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { relative } from "path";
+import { getPlaiceholder } from "plaiceholder";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
@@ -29,12 +30,20 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
     const { data, query, variables } = await client.queries.item({
         relativePath: `${params.id}.md`,
     });
+
+    const imageLink: string = data.item.imageLink ? data.item.imageLink : "";
+    const { base64, img } = await getPlaiceholder(imageLink);
+
     return {
         props: {
             data,
             query,
             variables,
             allPostsData,
+            imageProps: {
+                ...img,
+                blurDataURL: base64,
+            },
         },
     };
 }
@@ -105,7 +114,7 @@ export default function Post(props: any) {
                     <h2>{compostabilityQuestion}</h2>
 
                     <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
-                        <Image src={data.item.imageLink} alt={data.item.title} key={data.item.imageLink} style={{ objectFit: "cover" }} fill={true} priority={true} />
+                        <Image src={props.imageProps.src} blurDataURL={props.imageProps.blurDataURL} alt={`public${data.item.image}`} key={data.item.imageLink} style={{ objectFit: "cover" }} placeholder="blur" fill priority />
                     </div>
                     <StyledBody>
                         <h1>{data.item.title}</h1>

@@ -1,41 +1,44 @@
 {
-  "name": "isitcompostable",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "start": "tinacms build && next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@fontsource/roboto": "^4.5.8",
-    "@tinacms/cli": "^1.0.1",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "@vercel/analytics": "^0.1.5",
-    "autosuggest-highlight": "^3.3.4",
-    "baseui": "^12.2.0",
-    "date-fns": "^2.29.3",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.2",
-    "fs": "^0.0.1-security",
-    "gray-matter": "^4.0.3",
-    "next": "13.0.2",
-    "next-seo": "^5.14.1",
-    "rainbowvis.js": "^1.1.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "remark": "^14.0.2",
-    "remark-html": "^15.0.1",
-    "styletron-engine-atomic": "^1.5.0",
-    "styletron-react": "^6.1.0",
-    "tinacms": "^1.0.1",
-    "typescript": "4.8.4"
-  },
-  "devDependencies": {
-    "@types/autosuggest-highlight": "^3.2.0",
-    "eslint-plugin-baseui": "^12.2.0"
-  }
+    "name": "isitcompostable",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "tinacms dev -c \"next dev\"",
+        "build": "tinacms build && next build",
+        "start": "tinacms build && next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@fontsource/roboto": "^4.5.8",
+        "@tinacms/cli": "^1.0.1",
+        "@types/node": "^18.11.9",
+        "@types/react": "^18.0.25",
+        "@types/react-dom": "^18.0.8",
+        "@vercel/analytics": "^0.1.5",
+        "autosuggest-highlight": "^3.3.4",
+        "baseui": "^12.2.0",
+        "date-fns": "^2.29.3",
+        "eslint": "^8.27.0",
+        "eslint-config-next": "^13.0.2",
+        "fs": "^0.0.1-security",
+        "glob": "^8.0.3",
+        "gray-matter": "^4.0.3",
+        "next": "^13.0.2",
+        "next-seo": "^5.14.1",
+        "plaiceholder": "^2.5.0",
+        "rainbowvis.js": "^1.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "remark": "^14.0.2",
+        "remark-html": "^15.0.1",
+        "sharp": "^0.31.2",
+        "styletron-engine-atomic": "^1.5.0",
+        "styletron-react": "^6.1.0",
+        "tinacms": "^1.0.1",
+        "typescript": "^4.9.4"
+    },
+    "devDependencies": {
+        "@types/autosuggest-highlight": "^3.2.0",
+        "eslint-plugin-baseui": "^12.2.0"
+    }
 }
