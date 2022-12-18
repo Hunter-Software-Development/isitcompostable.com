@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@fontsource/roboto": "^4.5.8",
+        "@plaiceholder/next": "^2.5.0",
         "@tinacms/cli": "^1.0.1",
         "@types/node": "^18.11.9",
         "@types/react": "^18.0.25",
@@ -25,6 +26,7 @@
         "gray-matter": "^4.0.3",
         "next": "^13.0.2",
         "next-seo": "^5.14.1",
+        "node-base64-image": "^2.0.4",
         "plaiceholder": "^2.5.0",
         "rainbowvis.js": "^1.1.1",
         "react": "^18.2.0",

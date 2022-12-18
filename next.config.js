@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const { withPlaiceholder } = require("@plaiceholder/next");
+
+module.exports = withPlaiceholder({
     reactStrictMode: true,
     swcMinify: true,
     webpack: (config) => {
@@ -29,6 +31,4 @@ const nextConfig = {
             },
         ],
     },
-};
-
-module.exports = nextConfig;
+});
