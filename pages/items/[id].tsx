@@ -1,39 +1,30 @@
 import Layout from "../../components/layout";
-import { getAllPostIds, getSortedPostsData } from "../../lib/items";
-import Head from "next/head";
+import { getAllPostIds, getPostData, getSortedPostsData } from "../../lib/items";
 
 import utilStyles from "../../styles/utils.module.css";
 import Rainbow from "rainbowvis.js";
 import { useRouter } from "next/router";
 import { ReactCusdis } from "../../components/ReactCusdis";
 
-import { Card, StyledAction, StyledBody, StyledThumbnail } from "baseui/card";
+import { Card, StyledAction, StyledBody } from "baseui/card";
 import { Accordion, Panel } from "baseui/accordion";
 import { ListItem, ListItemLabel } from "baseui/list";
 import { StyledLink } from "baseui/link";
 import { Notification } from "baseui/notification";
 
-import { useTina } from "tinacms/dist/react";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { client } from "../../.tina/__generated__/client";
 import { NextSeo } from "next-seo";
 import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
-import { relative } from "path";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
+    const data = { item: {} };
+    data.item = await getPostData(params.id);
 
-    // Add the "await" keyword like this:
-    const { data, query, variables } = await client.queries.item({
-        relativePath: `${params.id}.md`,
-    });
     return {
         props: {
             data,
-            query,
-            variables,
             allPostsData,
         },
     };
@@ -48,14 +39,9 @@ export async function getStaticPaths() {
 }
 
 export default function Post(props: any) {
-    const { data } = useTina({
-        query: props.query,
-        variables: props.variables,
-        data: props.data,
-    });
-
     const router = useRouter();
     const currentUri = "https://isitcompostable.com/items/" + router.query.id;
+    const data = props.data;
 
     const sources = data.item.sources.map((link: string) => (
         <ListItem key={link}>
@@ -129,7 +115,7 @@ export default function Post(props: any) {
                             </p>
                         )}
                         {data.item.bulkDensityPoundsPerCubicYard && data.item.bulkDensityPoundsPerCubicYard != 0 && <p>Bulk Density: {data.item.bulkDensityPoundsPerCubicYard} lb/yd³</p>}
-                        <TinaMarkdown content={data.item.body} />
+                        {data.item.body}
                     </StyledBody>
 
                     <StyledAction>
