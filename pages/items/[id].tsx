@@ -31,7 +31,9 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
 
     await new Promise(resolve => setTimeout(resolve, 20000));
 
-    const { base64, img } = await getPlaiceholder(data.item.imageLink ?? "");
+    const { base64, img } = await getPlaiceholder(data.item.imageLink ?? "", {
+        size: 64
+    });
 
     return {
         props: {
