@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.8",
-    "@tinacms/cli": "^1.0.1",
+    "@tinacms/cli": "^1.0.4",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
@@ -31,8 +31,8 @@
     "remark-html": "^15.0.1",
     "styletron-engine-atomic": "^1.5.0",
     "styletron-react": "^6.1.0",
-    "tinacms": "^1.0.1",
-    "typescript": "4.8.4"
+    "tinacms": "^1.1.1",
+    "typescript": "4.9.4"
   },
   "devDependencies": {
     "@types/autosuggest-highlight": "^3.2.0",

@@ -12,23 +12,7 @@ const nextConfig = {
             },
         };
         return config;
-    },
-    images: {
-        remotePatterns: [
-            {
-                protocol: "https",
-                hostname: "www.publicdomainpictures.net",
-            },
-            {
-                protocol: "https",
-                hostname: "**.wikimedia.org",
-            },
-            {
-                protocol: "https",
-                hostname: "isitcompostable.com",
-            },
-        ],
-    },
+    }
 };
 
 module.exports = nextConfig;
