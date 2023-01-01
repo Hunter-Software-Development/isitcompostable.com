@@ -17,9 +17,7 @@ const ItemUtilityTabs = (ItemUtilityTabsObj: ItemUtilityTabsProps) => {
             onChange={({ activeKey }) => {
                 setActiveKey(activeKey.toString());
             }}
-            fill={FILL.fixed}
             activateOnFocus
-            renderAll
         >
             <Tab title="Recommended Products" disabled={!ItemUtilityTabsObj.productTitle}>
                 {ItemUtilityTabsObj.productTitle && <ProductRecommendation productTitle={ItemUtilityTabsObj.productTitle} productImageLink={ItemUtilityTabsObj.productImageLink} productReason={ItemUtilityTabsObj.productReason} productLink={ItemUtilityTabsObj.productLink} />}
