@@ -25,6 +25,12 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
+import ProductRecommendation from "../../components/productRecommendation";
+import Sources from "../../components/Sources";
+import { ItemConnectionDocument } from "../../.tina/__generated__/types";
+import Comments from "../../components/Comments";
+import AllItemsList from "../../components/AllItemsList";
+import ItemUtilityTabs from "../../components/ItemUtilityTabs";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
@@ -34,7 +40,7 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
         relativePath: `${params.id}.md`,
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 20000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const { base64, img } = data.item.imageLink
         ? await getPlaiceholder(data.item.imageLink ?? "", {
@@ -168,66 +174,7 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <StatefulTabs renderAll>
-                            {data.item.recommendedProductTitle ? (
-                                <Tab title="Recommended Products">
-                                    <Card title={data.item.recommendedProductTitle}>
-                                        <StyledThumbnail src={data.item.recommendedProductImageLink} />
-                                        <StyledBody>
-                                            <TinaMarkdown content={data.item.recommendedProductReason} />
-                                        </StyledBody>
-                                        <StyledAction>
-                                            <StyledLink href={data.item.recommendedProductLink} target="_blank">
-                                                Shop Now
-                                            </StyledLink>
-                                        </StyledAction>
-                                    </Card>
-                                </Tab>
-                            ) : ""}
-                            <Tab title="Sources">
-                                {sources}
-                                <ListItem key={data.item.imageLink}>
-                                    <ListItemLabel>
-                                        Image courtesy of:
-                                        <br />
-                                        <StyledLink href={data.item.imageLink} target="_blank" rel="noreferrer">
-                                            {data.item.imageLink}
-                                        </StyledLink>
-                                    </ListItemLabel>
-                                </ListItem>
-                            </Tab>
-                            <Tab title="Comments">
-                                <Notification
-                                    closeable
-                                    overrides={{
-                                        Body: { style: { width: "auto" } },
-                                    }}
-                                >
-                                    If you have any additional data regarding the compostability of {data.item.title} <strong>please leave a comment!</strong>
-                                </Notification>
-                                <br />
-                                <ReactCusdis
-                                    attrs={{
-                                        host: "https://cusdis.com",
-                                        appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
-                                        pageId: data.item.id,
-                                        pageTitle: data.item.title,
-                                        pageUrl: currentUri,
-                                    }}
-                                />
-                            </Tab>
-                            <Tab title="See Also">
-                                {props.allPostsData.map(function (o: any, i: any) {
-                                    return (
-                                        <ListItem key={o.title}>
-                                            <ListItemLabel>
-                                                <Link href={`/items/${o.id}`}>{o.title}</Link>
-                                            </ListItemLabel>
-                                        </ListItem>
-                                    );
-                                })}
-                            </Tab>
-                        </StatefulTabs>
+                        <ItemUtilityTabs key={data.item.title} productTitle={data.item.recommendedProductTitle} productImageLink={data.item.recommendedProductImageLink} productReason={data.item.recommendedProductReason} productLink={data.item.recommendedProductLink} sources={data.item.sources} imageLink={data.item.imageLink} title={data.item.title} pageId={data.item.id} pageUrl={data.item.pageUrl} allPostsData={props.allPostsData} />
                     </StyledAction>
                 </Card>
                 <br />

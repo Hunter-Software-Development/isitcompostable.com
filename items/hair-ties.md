@@ -8,7 +8,7 @@ recommendedProductReason: >
 
   While they may not be suitable for composting in municipal or commercial
   facilities, the cotton (which makes up 70% of the hair tie) is compostable and
-  the rubber will biodegrade in a shorter time frame than synthetic rubbers,
+  the rubber will biodegrade in a much shorter time frame (2-10 years) than synthetic rubbers,
   which can take
   [centuries](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8235351/ "Time to
   Decompose Rubber") to decompose.&#x20;
