@@ -20,6 +20,7 @@ const Comments = ({ title, pageId, pageUrl }: CommentsProps) => {
             </Notification>
             <br />
             <ReactCusdis
+                style={{ height: "400px" }}
                 attrs={{
                     host: "https://cusdis.com",
                     appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
