@@ -15,6 +15,6 @@ potassium: true
 
 "Not recommended but could use very limited amount as a lime source; do not exceed 1 cup wood ashes for each bushel of compost pile. Highly alkaline, possibility of some heavy metal content." \[1]
 
-Only use ash if your pile is not heating up due to low pH.\\
+Only use ash if your pile is not heating up due to low pH.
 
 Wood ashes have no nitrogen.

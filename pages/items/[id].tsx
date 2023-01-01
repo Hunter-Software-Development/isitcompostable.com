@@ -15,12 +15,13 @@ import { COLOR } from "baseui/badge";
 import { StatefulPopover, PLACEMENT } from "baseui/popover";
 import { ParagraphSmall } from "baseui/typography";
 import { Tag, SIZE } from "baseui/tag";
+import { Tabs, Tab, ORIENTATION, StatefulTabs } from "baseui/tabs-motion";
+import { Breadcrumbs } from "baseui/breadcrumbs";
 
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { client } from "../../.tina/__generated__/client";
 import { NextSeo } from "next-seo";
-import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
@@ -167,8 +168,23 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <Accordion accordion renderAll>
-                            <Panel title="Sources">
+                        <StatefulTabs renderAll>
+                            {data.item.recommendedProductTitle ? (
+                                <Tab title="Recommended Products">
+                                    <Card title={data.item.recommendedProductTitle}>
+                                        <StyledThumbnail src={data.item.recommendedProductImageLink} />
+                                        <StyledBody>
+                                            <TinaMarkdown content={data.item.recommendedProductReason} />
+                                        </StyledBody>
+                                        <StyledAction>
+                                            <StyledLink href={data.item.recommendedProductLink} target="_blank">
+                                                Shop Now
+                                            </StyledLink>
+                                        </StyledAction>
+                                    </Card>
+                                </Tab>
+                            ) : ""}
+                            <Tab title="Sources">
                                 {sources}
                                 <ListItem key={data.item.imageLink}>
                                     <ListItemLabel>
@@ -179,8 +195,8 @@ export default function Post(props: any) {
                                         </StyledLink>
                                     </ListItemLabel>
                                 </ListItem>
-                            </Panel>
-                            <Panel title="Comments">
+                            </Tab>
+                            <Tab title="Comments">
                                 <Notification
                                     closeable
                                     overrides={{
@@ -199,8 +215,8 @@ export default function Post(props: any) {
                                         pageUrl: currentUri,
                                     }}
                                 />
-                            </Panel>
-                            <Panel title="See Also">
+                            </Tab>
+                            <Tab title="See Also">
                                 {props.allPostsData.map(function (o: any, i: any) {
                                     return (
                                         <ListItem key={o.title}>
@@ -210,8 +226,8 @@ export default function Post(props: any) {
                                         </ListItem>
                                     );
                                 })}
-                            </Panel>
-                        </Accordion>
+                            </Tab>
+                        </StatefulTabs>
                     </StyledAction>
                 </Card>
                 <br />

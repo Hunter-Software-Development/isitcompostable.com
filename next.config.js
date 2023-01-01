@@ -33,6 +33,10 @@ module.exports = withPlaiceholder({
                 protocol: "https",
                 hostname: "isitcompostable.com",
             },
+            {
+                protocol: "https",
+                hostname: "cdn.shopify.com",
+            },
         ],
     },
 });
