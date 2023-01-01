@@ -8,6 +8,7 @@ import React from "react";
 import { ListItem, ListItemLabel } from "baseui/list";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
+import AllItemsList from "../../components/AllItemsList";
 
 export async function getStaticProps() {
     const allPostsData = getSortedPostsData();
@@ -47,15 +48,7 @@ export default function Home({ allPostsData }: any) {
             <article>
                 <h1 className={utilStyles.headingXl}>All Items</h1>
                 <Card>
-                    {allPostsData.map(function (o: any, i: any) {
-                        return (
-                            <ListItem key={o.title}>
-                                <ListItemLabel>
-                                    <Link href={`/items/${o.id}`}>{o.title}</Link>
-                                </ListItemLabel>
-                            </ListItem>
-                        );
-                    })}
+                    <AllItemsList allPostsData={allPostsData} />
                 </Card>
             </article>
         </Layout>

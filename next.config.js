@@ -33,6 +33,17 @@ module.exports = withPlaiceholder({
                 protocol: "https",
                 hostname: "isitcompostable.com",
             },
+            {
+                protocol: "https",
+                hostname: "cdn.shopify.com",
+            },
         ],
+    },
+    experimental: {
+        // This is experimental but can
+        // be enabled to allow parallel threads
+        // with nextjs automatic static generation
+        workerThreads: false,
+        cpus: 1,
     },
 });

@@ -15,15 +15,17 @@ import { COLOR } from "baseui/badge";
 import { StatefulPopover, PLACEMENT } from "baseui/popover";
 import { ParagraphSmall } from "baseui/typography";
 import { Tag, SIZE } from "baseui/tag";
+import { Tabs, Tab, ORIENTATION, StatefulTabs } from "baseui/tabs-motion";
+import { Breadcrumbs } from "baseui/breadcrumbs";
 
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { client } from "../../.tina/__generated__/client";
 import { NextSeo } from "next-seo";
-import { Breadcrumbs } from "baseui/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
+import ItemUtilityTabs from "../../components/ItemUtilityTabs";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
     const allPostsData = getSortedPostsData();
@@ -33,7 +35,7 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
         relativePath: `${params.id}.md`,
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 20000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const { base64, img } = data.item.imageLink
         ? await getPlaiceholder(data.item.imageLink ?? "", {
@@ -167,51 +169,7 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <Accordion accordion renderAll>
-                            <Panel title="Sources">
-                                {sources}
-                                <ListItem key={data.item.imageLink}>
-                                    <ListItemLabel>
-                                        Image courtesy of:
-                                        <br />
-                                        <StyledLink href={data.item.imageLink} target="_blank" rel="noreferrer">
-                                            {data.item.imageLink}
-                                        </StyledLink>
-                                    </ListItemLabel>
-                                </ListItem>
-                            </Panel>
-                            <Panel title="Comments">
-                                <Notification
-                                    closeable
-                                    overrides={{
-                                        Body: { style: { width: "auto" } },
-                                    }}
-                                >
-                                    If you have any additional data regarding the compostability of {data.item.title} <strong>please leave a comment!</strong>
-                                </Notification>
-                                <br />
-                                <ReactCusdis
-                                    attrs={{
-                                        host: "https://cusdis.com",
-                                        appId: "d8e3fcef-35a8-490c-856b-5933d8000c4e",
-                                        pageId: data.item.id,
-                                        pageTitle: data.item.title,
-                                        pageUrl: currentUri,
-                                    }}
-                                />
-                            </Panel>
-                            <Panel title="See Also">
-                                {props.allPostsData.map(function (o: any, i: any) {
-                                    return (
-                                        <ListItem key={o.title}>
-                                            <ListItemLabel>
-                                                <Link href={`/items/${o.id}`}>{o.title}</Link>
-                                            </ListItemLabel>
-                                        </ListItem>
-                                    );
-                                })}
-                            </Panel>
-                        </Accordion>
+                        <ItemUtilityTabs key={data.item.title} productTitle={data.item.recommendedProductTitle} productImageLink={data.item.recommendedProductImageLink} productReason={data.item.recommendedProductReason} productLink={data.item.recommendedProductLink} sources={data.item.sources} imageLink={data.item.imageLink} title={data.item.title} pageId={data.item.id} pageUrl={data.item.pageUrl} allPostsData={props.allPostsData} />
                     </StyledAction>
                 </Card>
                 <br />
