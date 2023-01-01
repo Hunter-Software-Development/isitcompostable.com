@@ -2,7 +2,7 @@ import React from "react";
 import { StatefulTabs, Tab, Tabs, FILL } from "baseui/tabs-motion";
 import AllItemsList, { AllItemsListProps } from "./AllItemsList";
 import Comments, { CommentsProps } from "./Comments";
-import ProductRecommendation, { ProductRecommendationProps } from "./productRecommendation";
+import ProductRecommendation, { ProductRecommendationProps } from "./ProductRecommendation";
 import Sources, { SourcesProps } from "./Sources";
 
 interface ItemUtilityTabsProps extends ProductRecommendationProps, SourcesProps, CommentsProps, AllItemsListProps {}
