@@ -25,6 +25,7 @@
         "glob": "^8.0.3",
         "gray-matter": "^4.0.3",
         "next": "^13.0.2",
+        "next-pwa": "^5.6.0",
         "next-seo": "^5.14.1",
         "node-base64-image": "^2.0.4",
         "plaiceholder": "^2.5.0",
