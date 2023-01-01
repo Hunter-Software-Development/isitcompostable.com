@@ -2,7 +2,7 @@
 title: Paper Straws
 compostable: true
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Advertisement_for_Stone_Julep_Straws.png/640px-Advertisement_for_Stone_Julep_Straws.png
+  https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Advertisement_for_Stone_Julep_Straws.png/512px-Advertisement_for_Stone_Julep_Straws.png
 sources:
   - 'https://www.calgary.ca/waste/what-goes-where/paper-straw.html'
 ---

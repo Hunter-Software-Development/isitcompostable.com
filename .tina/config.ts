@@ -35,10 +35,32 @@ export default defineConfig({
                     {
                         type: "boolean",
                         name: "compostable",
+                        label: "Compostable",
+                    },
+                    {
+                        type: "boolean",
+                        name: "complicated",
+                        label: "Complicated",
                     },
                     {
                         type: "boolean",
                         name: "singular",
+                        label: "Singular",
+                    },
+                    {
+                        type: "number",
+                        name: "carbonToNitrogenRatio",
+                        required: false,
+                    },
+                    {
+                        type: "boolean",
+                        name: "phosphorus",
+                        label: "Phosphorus",
+                    },
+                    {
+                        type: "boolean",
+                        name: "potassium",
+                        label: "Potassium",
                     },
                     {
                         name: "imageLink",
@@ -55,11 +77,7 @@ export default defineConfig({
                         name: "percentNitrogen",
                         required: false,
                     },
-                    {
-                        type: "number",
-                        name: "carbonToNitrogenRatio",
-                        required: false,
-                    },
+
                     {
                         type: "number",
                         name: "moistureContentPercentage",

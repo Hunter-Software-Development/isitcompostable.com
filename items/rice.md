@@ -3,7 +3,7 @@ title: Rice
 compostable: true
 singular: true
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/BUSHCONDIWH.jpg/640px-BUSHCONDIWH.jpg
+  https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/BUSHCONDIWH.jpg/512px-BUSHCONDIWH.jpg
 typeOfValue: null
 percentNitrogen: null
 carbonToNitrogenRatio: 69.66

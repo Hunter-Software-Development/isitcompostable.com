@@ -3,7 +3,7 @@ title: Vegetable Wastes
 compostable: true
 singular: false
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Beckert%27s_%2748_garden_annual_%281948%29_%2820359140245%29.jpg/640px-Beckert%27s_%2748_garden_annual_%281948%29_%2820359140245%29.jpg
+  https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Beckert%27s_%2748_garden_annual_%281948%29_%2820359140245%29.jpg/512px-Beckert%27s_%2748_garden_annual_%281948%29_%2820359140245%29.jpg
 typeOfValue: Typical
 percentNitrogen: 4.5
 carbonToNitrogenRatio: 11

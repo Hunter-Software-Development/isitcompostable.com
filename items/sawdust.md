@@ -3,7 +3,7 @@ title: Sawdust
 compostable: true
 singular: true
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/The_Sawdust_Trail_%281924%29_-_6.jpg/640px-The_Sawdust_Trail_%281924%29_-_6.jpg
+  https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/The_Sawdust_Trail_%281924%29_-_6.jpg/512px-The_Sawdust_Trail_%281924%29_-_6.jpg
 typeOfValue: Average
 percentNitrogen: 0.24
 carbonToNitrogenRatio: 442

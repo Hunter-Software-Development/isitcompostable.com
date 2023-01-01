@@ -3,7 +3,7 @@ title: Grass Clippings
 compostable: true
 singular: false
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Grass_dsc08672-nevit.jpg/640px-Grass_dsc08672-nevit.jpg
+  https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Grass_dsc08672-nevit.jpg/512px-Grass_dsc08672-nevit.jpg
 typeOfValue: Average
 percentNitrogen: 3.4
 carbonToNitrogenRatio: 17
@@ -13,6 +13,8 @@ sources:
   - 'https://cwmi.css.cornell.edu/AppendixATable1OFCH.pdf'
   - 'https://compost.css.cornell.edu/CompostCalculator.xlsx'
   - 'https://www.uaex.uada.edu/publications/pdf/FSA-2087.pdf'
+phosphorus: true
+potassium: true
 ---
 
 Grass Clippings are compostable! They are a green.\

@@ -27,6 +27,10 @@ module.exports = withPlaiceholder({
             },
             {
                 protocol: "https",
+                hostname: "openailabsprodscus.blob.core.windows.net",
+            },
+            {
+                protocol: "https",
                 hostname: "isitcompostable.com",
             },
         ],

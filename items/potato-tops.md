@@ -3,7 +3,7 @@ title: Potato Tops
 compostable: true
 singular: false
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Spring_1897_%281897%29_%2820558287951%29.jpg/640px-Spring_1897_%281897%29_%2820558287951%29.jpg
+  https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Spring_1897_%281897%29_%2820558287951%29.jpg/512px-Spring_1897_%281897%29_%2820558287951%29.jpg
 typeOfValue: Typical
 percentNitrogen: 1.5
 carbonToNitrogenRatio: 25
