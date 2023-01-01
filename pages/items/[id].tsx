@@ -25,11 +25,6 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import Image from "next/image";
 import { getPlaiceholder } from "plaiceholder";
-import ProductRecommendation from "../../components/productRecommendation";
-import Sources from "../../components/Sources";
-import { ItemConnectionDocument } from "../../.tina/__generated__/types";
-import Comments from "../../components/Comments";
-import AllItemsList from "../../components/AllItemsList";
 import ItemUtilityTabs from "../../components/ItemUtilityTabs";
 
 export async function getStaticProps({ params }: { params: { id: number } }) {
