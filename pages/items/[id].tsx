@@ -35,7 +35,7 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
         relativePath: `${params.id}.md`,
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     const { base64, img } = data.item.imageLink
         ? await getPlaiceholder(data.item.imageLink ?? "", {
