@@ -55,12 +55,12 @@ export default defineConfig({
                     {
                         type: "boolean",
                         name: "phosphorus",
-                        label: "Phosphorus",
+                        label: "Phosphorus P",
                     },
                     {
                         type: "boolean",
                         name: "potassium",
-                        label: "Potassium",
+                        label: "Potassium K",
                     },
                     {
                         name: "imageLink",
@@ -87,6 +87,27 @@ export default defineConfig({
                         type: "number",
                         name: "bulkDensityPoundsPerCubicYard",
                         required: false,
+                    },
+                    {
+                        type: "string",
+                        name: "recommendedProductTitle",
+                        label: "Recommended Product Title",
+                    },
+                    {
+                        type: "string",
+                        name: "recommendedProductLink",
+                        label: "Recommended Product Link",
+                    },
+                    {
+                        type: "string",
+                        name: "recommendedProductImageLink",
+                        label: "Recommended Product Image Link",
+                    },
+                    {
+                        type: "rich-text",
+                        name: "recommendedProductReason",
+                        label: "Recommended Product Reason",
+                        isBody: false,
                     },
                     {
                         type: "string",
