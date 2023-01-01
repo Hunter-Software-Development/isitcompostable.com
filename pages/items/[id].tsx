@@ -11,6 +11,10 @@ import { Accordion, Panel } from "baseui/accordion";
 import { ListItem, ListItemLabel } from "baseui/list";
 import { StyledLink } from "baseui/link";
 import { Notification } from "baseui/notification";
+import { COLOR } from "baseui/badge";
+import { StatefulPopover, PLACEMENT } from "baseui/popover";
+import { ParagraphSmall } from "baseui/typography";
+import { Tag, SIZE } from "baseui/tag";
 
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
@@ -29,11 +33,13 @@ export async function getStaticProps({ params }: { params: { id: number } }) {
         relativePath: `${params.id}.md`,
     });
 
-    await new Promise(resolve => setTimeout(resolve, 20000));
+    await new Promise((resolve) => setTimeout(resolve, 20000));
 
-    const { base64, img } = await getPlaiceholder(data.item.imageLink ?? "", {
-        size: 64
-    });
+    const { base64, img } = data.item.imageLink
+        ? await getPlaiceholder(data.item.imageLink ?? "", {
+              size: 64,
+          })
+        : { base64: false, img: [] };
 
     return {
         props: {
@@ -88,7 +94,7 @@ export default function Post(props: any) {
     }
 
     const compostabilityQuestion = (data.item.singular ? "Is " : "Are ") + data.item.title + " Compostable?";
-    const compostabilityDeclaration = data.item.title + (data.item.singular ? " Is" : " Are") + (data.item.compostable ? "" : " Not") + " Compostable!";
+    const compostabilityDeclaration = (data.item.complicated ? "It's a bit complicated but " : "") + data.item.title + (data.item.singular ? " is" : " are") + (data.item.compostable ? "" : " not") + " compostable!";
 
     return (
         <Layout allPostsData={props.allPostsData}>
@@ -113,12 +119,30 @@ export default function Post(props: any) {
             <article>
                 <Card>
                     <h2>{compostabilityQuestion}</h2>
-
-                    <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
-                        <Image src={props.imageProps.src} blurDataURL={props.imageProps.blurDataURL} alt={`public${data.item.image}`} key={data.item.imageLink} style={{ objectFit: "cover" }} placeholder="blur" fill priority />
-                    </div>
+                    {props.imageProps.src && (
+                        <div style={{ position: "relative", height: "200px", width: "100%", overflow: "hidden" }}>
+                            <Image src={props.imageProps.src} blurDataURL={props.imageProps.blurDataURL} alt={`public${data.item.image}`} key={data.item.imageLink} style={{ objectFit: "cover" }} placeholder="blur" fill priority />
+                        </div>
+                    )}
                     <StyledBody>
-                        <h1>{data.item.title}</h1>
+                        <h1>
+                            {data.item.title}
+                            {data.item.phosphorus && (
+                                <StatefulPopover content={() => <ParagraphSmall padding="scale500">Contains phosphorus</ParagraphSmall>} accessibilityType={"tooltip"} placement={PLACEMENT.top}>
+                                    <Tag closeable={false} size={SIZE.small} kind="accent" color={COLOR.accent}>
+                                        P
+                                    </Tag>
+                                </StatefulPopover>
+                            )}
+                            {data.item.potassium && (
+                                <StatefulPopover content={() => <ParagraphSmall padding="scale500">Contains potassium</ParagraphSmall>} accessibilityType={"tooltip"} placement={PLACEMENT.top}>
+                                    <Tag closeable={false} size={SIZE.small} kind="negative" color={COLOR.accent}>
+                                        K
+                                    </Tag>
+                                </StatefulPopover>
+                            )}
+                        </h1>
+
                         <div className={utilStyles.lightText}></div>
                         <p>{compostabilityDeclaration}</p>
 
@@ -143,7 +167,7 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <Accordion accordion>
+                        <Accordion accordion renderAll>
                             <Panel title="Sources">
                                 {sources}
                                 <ListItem key={data.item.imageLink}>

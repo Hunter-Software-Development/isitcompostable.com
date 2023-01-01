@@ -3,7 +3,7 @@ title: Leaves
 compostable: true
 singular: false
 imageLink: >-
-  https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Illustrations_of_leaves_in_%27De_historia...%27_Wellcome_L0051242.jpg/640px-Illustrations_of_leaves_in_%27De_historia...%27_Wellcome_L0051242.jpg
+  https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Illustrations_of_leaves_in_%27De_historia...%27_Wellcome_L0051242.jpg/512px-Illustrations_of_leaves_in_%27De_historia...%27_Wellcome_L0051242.jpg
 typeOfValue: Average
 percentNitrogen: 0.9
 carbonToNitrogenRatio: 54
