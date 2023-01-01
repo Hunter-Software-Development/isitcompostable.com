@@ -11,14 +11,9 @@ import { Accordion, Panel } from "baseui/accordion";
 import { ListItem, ListItemLabel } from "baseui/list";
 import { StyledLink } from "baseui/link";
 import { Notification } from "baseui/notification";
-import { Badge, COLOR, HIERARCHY, HintDot } from "baseui/badge";
-import { StatefulPopover, TRIGGER_TYPE, PLACEMENT } from "baseui/popover";
+import { COLOR } from "baseui/badge";
+import { StatefulPopover, PLACEMENT } from "baseui/popover";
 import { ParagraphSmall } from "baseui/typography";
-import { StatefulTooltip } from "baseui/tooltip";
-
-import { Block } from "baseui/block";
-import { Input } from "baseui/input";
-import { Button } from "baseui/button";
 import { Tag, SIZE } from "baseui/tag";
 
 import { useTina } from "tinacms/dist/react";
@@ -172,7 +167,7 @@ export default function Post(props: any) {
                     </StyledBody>
 
                     <StyledAction>
-                        <Accordion accordion /*renderAll*/>
+                        <Accordion accordion renderAll>
                             <Panel title="Sources">
                                 {sources}
                                 <ListItem key={data.item.imageLink}>
