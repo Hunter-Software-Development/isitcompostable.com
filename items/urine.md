@@ -11,6 +11,10 @@ moistureContentPercentage: 94.5
 bulkDensityPoundsPerCubicYard: 1722.3
 sources:
   - 'https://compost.css.cornell.edu/CompostCalculator.xlsx'
+  - 'https://www.lowimpact.org/posts/taking-the-pee'
+phosphorus: true
+potassium: true
+recommendedProductReason: ''
 ---
 
 Urine is compostable! It is a green
