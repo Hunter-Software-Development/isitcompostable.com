@@ -2,22 +2,23 @@ import { StyledLink } from "baseui/link";
 import { ListItem, ListItemLabel } from "baseui/list";
 
 export interface SourcesProps {
-    sources: [string];
+    sources?: [string];
     imageLink?: string;
 }
 
 const Sources = ({ sources, imageLink }: SourcesProps) => {
     return (
         <>
-            {sources.map((link: string) => (
-                <ListItem key={link}>
-                    <ListItemLabel>
-                        <StyledLink href={link} target="_blank" rel="noreferrer">
-                            {link}
-                        </StyledLink>
-                    </ListItemLabel>
-                </ListItem>
-            ))}
+            {sources &&
+                sources.map((link: string) => (
+                    <ListItem key={link}>
+                        <ListItemLabel>
+                            <StyledLink href={link} target="_blank" rel="noreferrer">
+                                {link}
+                            </StyledLink>
+                        </ListItemLabel>
+                    </ListItem>
+                ))}
             <ListItem key={imageLink}>
                 <ListItemLabel>
                     Image courtesy of:

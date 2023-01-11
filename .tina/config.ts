@@ -113,7 +113,6 @@ export default defineConfig({
                         type: "string",
                         name: "sources",
                         list: true,
-                        required: true,
                     },
                     {
                         type: "rich-text",

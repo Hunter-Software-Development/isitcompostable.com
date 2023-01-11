@@ -28,7 +28,13 @@ export function getSortedPostsData() {
     });
     // Sort posts by date
     return allPostsData.sort((a: any, b: any): any => {
-        a.title.localeCompare(b.title);
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
     });
 }
 export function getAllPostIds() {

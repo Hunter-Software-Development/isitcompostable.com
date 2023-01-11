@@ -75,15 +75,7 @@ export default function Post(props: any) {
     const router = useRouter();
     const currentUri = "https://isitcompostable.com/items/" + router.query.id;
 
-    const sources = data.item.sources.map((link: string) => (
-        <ListItem key={link}>
-            <ListItemLabel>
-                <StyledLink href={link} target="_blank" rel="noreferrer">
-                    {link}
-                </StyledLink>
-            </ListItemLabel>
-        </ListItem>
-    ));
+
 
     const rainbow = new Rainbow();
     rainbow.setSpectrum("green", "brown");
