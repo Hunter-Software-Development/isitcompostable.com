@@ -5,6 +5,8 @@ import { StyledDivider, SIZE } from "baseui/divider";
 import { Heading, HeadingLevel } from "baseui/heading";
 import { Grid, Cell } from "baseui/layout-grid";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
+import { ParagraphSmall } from "baseui/typography";
 
 const Home = ({ name, allPostsData }: { name?: string; allPostsData: any }): JSX.Element => {
     const title = "Is It Compostable?";
@@ -21,7 +23,7 @@ const Home = ({ name, allPostsData }: { name?: string; allPostsData: any }): JSX
                     type: "website",
                     description: description,
                     images: [{ url: "https://raw.githubusercontent.com/Hunter-Software-Development/isitcompostable.com/main/public/favicon.png" }],
-                    siteName: "Is It Compostable?",
+                    siteName: title,
                 }}
                 twitter={{
                     handle: "@isitcompostable",
@@ -34,10 +36,16 @@ const Home = ({ name, allPostsData }: { name?: string; allPostsData: any }): JSX
                 <Grid>
                     <Cell span={12}>
                         <HeadingLevel>
-                            <Heading>{name}</Heading>
+                            <Heading>{title}</Heading>
                         </HeadingLevel>
                         <StyledDivider $size={SIZE.cell} />
                         <Search allPostsData={allPostsData} size="large" />
+                        <ParagraphSmall>
+                            Made with ❤️ by{" "}
+                            <Link href="https://huntersoftware.dev" target="_blank">
+                                Andrew Hunter
+                            </Link>
+                        </ParagraphSmall>
                     </Cell>
                 </Grid>
             </div>
